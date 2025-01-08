@@ -11,7 +11,7 @@ public class sum14 {
         char[] c2=s2.toCharArray();
         Arrays.sort(c1);
         Arrays.sort(c2);
-        if(Array.equals(c1,c2)){
+        if(c1.equals(c2)){
             System.out.println("YES");
         }
         else{

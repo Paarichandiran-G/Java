@@ -6,9 +6,9 @@ public class console_project {
    //  String t1_captain=sc.nextLine();
    //  String team2_name=sc.nextLine();
    //  String t2_captain=sc.nextLine();
+   String s = "etwgedgeg";
 
-
-   System.err.println("hfhh");
+   System.err.println(s.substring(0,0)+" rewrrweewr");
 
    }
 }

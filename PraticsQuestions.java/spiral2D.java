@@ -33,7 +33,7 @@ public class spiral2D {
         for(int l=right;l>top;l--){
             System.out.print(arr[top][l]+" ");
         }
-        if(Character.is)
+        
         top++;
     }
         //top++;  

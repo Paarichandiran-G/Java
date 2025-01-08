@@ -1,0 +1,86 @@
+import java.util.*;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input reading
+        int M = scanner.nextInt();
+        int N = scanner.nextInt();
+        int[][] grid = new int[M][N];
+        
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                grid[i][j] = scanner.nextInt();
+            }
+        }
+
+        int startX = scanner.nextInt();
+        int startY = scanner.nextInt();
+        int destX = scanner.nextInt();
+        int destY = scanner.nextInt();
+        int moveX = scanner.nextInt();
+        int moveY = scanner.nextInt();
+
+        int result = minMovesToDestination(M, N, grid, startX, startY, destX, destY, moveX, moveY);
+        System.out.println(result);
+    }
+
+    private static int minMovesToDestination(int M, int N, int[][] grid, int startX, int startY, int destX, int destY, int moveX, int moveY) {
+        // Directions based on the move rule
+        int[][] directions = {
+            {moveX, moveY},      // Forward
+            {moveY, -moveX},     // Right (90 degrees clockwise)
+            {-moveY, moveX},     // Left (90 degrees counterclockwise)
+            {-moveX, -moveY}     // Backward (180 degrees)
+        };
+
+        // BFS initialization
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{startX, startY, 0});  // {x, y, moves}
+        
+        boolean[][] visited = new boolean[M][N];
+        visited[startX][startY] = true;
+
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            int x = current[0];
+            int y = current[1];
+            int moves = current[2];
+
+            // Check if we have reached the destination
+            if (x == destX && y == destY) {
+                return moves;
+            }
+
+            // Explore all directions
+            for (int[] direction : directions) {
+                int newX = x + direction[0];
+                int newY = y + direction[1];
+
+                // Check bounds and if the cell is traversable
+                if (isValid(M, N, grid, newX, newY, visited)) {
+                    visited[newX][newY] = true;
+                    queue.offer(new int[]{newX, newY, moves + 1});
+                }
+            }
+        }
+
+        // If we exhaust all possibilities without finding the destination
+        return -1; // Indicating that the destination is unreachable
+    }
+
+    private static boolean isValid(int M, int N, int[][] grid, int x, int y, boolean[][] visited) {
+        return x >= 0 && x < M && y >= 0 && y < N && grid[x][y] == 0 && !visited[x][y];
+    }
+}
+
+
+   round 2
+   basic programming
+   anagrams,palindrom
+   matrix manipulation
+   theroms
+   4 programs
+   no inbuilt functions

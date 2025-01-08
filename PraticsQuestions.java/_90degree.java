@@ -1,5 +1,5 @@
 import java.util.*;
-public class 90degree{
+public class _90degree{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         String n=sc.nextLine();

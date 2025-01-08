@@ -1,4 +1,4 @@
-package pratice;
+
 import java.util.*;
 public class sum7 {
     public static void main(String[] args) {

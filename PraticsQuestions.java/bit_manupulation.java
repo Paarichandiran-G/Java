@@ -1,97 +1,43 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 public class bit_manupulation {
-    static int getBit(int n,int i){
-        if((n&(1<<i))!=0){
-            return 1;
-        }
-        return 0;
-    }
-    static int setBit(int n,int i){
-        return (n|(1<<i));
-    }
-    static int unsetBit(int n,int i){
-        return (n&(~(1<<i)));
-    }
-    static int togalBit(int n,int i){
-        // if(getBit(n, i)==1){
-        //     return unsetBit(n, i);
-        // }
-        // return setBit(n, i);
-
-        return (n^(1<<i));
-    }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        // byte a=5;
-        // byte b=-10;
-        // System.out.println(a&b);
-        // System.out.println(a|b);
-        // System.out.println((~b));
+        // Create a list of lists
+        List<List<Integer>> listOfLists = new ArrayList<>();
+        // System.out.println(listOfLists);
+        // System.out.println(listOfLists);
         
+        // Create individual lists
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
         
-         System.out.println(getBit(12,1));
-
-        //! odd or even
-        // int n=sc.nextInt();
-        // if(getBit(n, 0)==1){
-        //     System.out.println("odd");
-        // }
-        // else{
-        //     System.out.println("even");
-        // }
-
-        // if((n&1)==1){
-        //     System.out.println("odd");
-        // }
-        // else{
-        //     System.out.println("even");
-        // }
-
-
-        //! toggal for loop
-        // boolean f=true;
-        // int n=1;
-        // for(int i=0;i<7;i++){
-        //     if(f){
-        //         System.out.println("first");
-        //     }
-        //     else{
-        //         System.out.println("second");
-        //     }
-        //     //?toggaler
-        //     f=f^true;
-        //     n=n^1;
-        // }
-
-        //!subset
-        // char str[]=sc.next().toCharArray();
-        // int l=str.length;
-        // int n=(int)Math.pow(2,l);
-        // for(int i=0;i<n;i++){
-        //     for(int j=0;j<l;j++){
-        //         if(getBit(i, j)==1){
-        //             System.out.print(str[j]);
-        //         }
-        //     }
-        //     System.out.println();
-        // }
-
-        //! remove duplicates
-        // int n=sc.nextInt();
-        // int arr[]=new int[n];
-        // for(int i=0;i<n;i++){
-        //     arr[i]=sc.nextInt();
-        // }
-        // int sum=0;
-        // for(int i=0;i<n;i++){
-        //     sum^=arr[i];
-        // }
-        // System.out.println(sum);
-
-        // int a=2147483647;
-        // System.out.println(a);
-        // a*=2;
-        // System.out.println(a);
-        // sc.close();
+        // System.out.println(listOfLists);
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(4);
+        list2.add(5);
+        list2.add(6);
+        
+        // System.out.println(listOfLists);
+        List<Integer> list3 = new ArrayList<>();
+        list3.add(7);
+        list3.add(8);
+        list3.add(9);
+        
+        // System.out.println(listOfLists);
+        // Add individual lists to the list of lists
+        listOfLists.add(list1);
+        listOfLists.add(list2);
+        listOfLists.add(list3);
+        
+        System.out.println(listOfLists.get(0));
+        // Iterate through the list of lists and print each element
+        for (List<Integer> list : listOfLists) {
+            for (Integer number : list) {
+                System.out.print(number + " ");
+            }
+            System.out.println();
+        }
     }
 }
